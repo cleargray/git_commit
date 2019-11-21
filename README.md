@@ -11,32 +11,33 @@ Check mode is working.
 
 #### OPTIONS (= is mandatory)
 
-- add_files
-        Add or not untracked files.
-        [Default: false]
+```yaml
+    options:
+      repo:
+        description:
+          - Path to local repo for working with.
+      branch:
+        description:
+          - Name of branch for creation
+      commit_msg:
+        description:
+          - Commit message.
+      add_files:
+        description:
+          - Add or not untracked files.
         type: bool
-
-- branch
-        Name of branch for creation
-        [Default: (null)]
-
-- commit
-        Commit or not changes.
-        [Default: false]
+        default: 'false'
+      commit:
+        description:
+          - Commit or not changes.
         type: bool
-
-- commit_msg
-        Commit message.
-        [Default: (null)]
-
-- push
-        Push or not changes.
-        [Default: false]
+        default: 'false'
+      push:
+        description:
+          - Push or not changes.
         type: bool
-
-- repo
-        Path to local repo for working with.
-        [Default: (null)]
+        default: 'false'
+```
 
 #### REQUIREMENTS:  git
 
