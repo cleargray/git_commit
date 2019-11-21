@@ -63,13 +63,13 @@ EXAMPLES = '''
     commit: true
     push: true
 # Just commit changes
-- git_config:
+- git_commit:
     repo: path/to-local/repo
     branch: feature/new-branch
     commit_msg: "Test commit"
     commit: true
 # Create or checkout existent branch
-- git_config:
+- git_commit:
     repo: path/to-local/repo
     branch: feature/new-branch
 '''
@@ -208,7 +208,6 @@ def main():
     )
 
     params = module.params
-    # We check error message for a pattern, so we need to make sure the messages appear in the form we're expecting.
     # Set the locale to C to ensure consistent messages.
     module.run_command_environ_update = dict(LANG='C', LC_ALL='C', LC_MESSAGES='C', LC_CTYPE='C')
 
@@ -239,7 +238,7 @@ def main():
         diff=dict(
             before_header="",
             before="\n",
-            after_header="Commit Changes:",
+            after_header="Commit changes:",
             after=(diff or "") + "\n"
         ),
         changed=changed,

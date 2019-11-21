@@ -66,7 +66,7 @@ Check mode is working.
 #### Just commit changes
 
 ```yaml
-- git_config:
+- git_commit:
     repo: path/to-local/repo
     branch: feature/new-branch
     commit_msg: "Test commit"
@@ -76,7 +76,7 @@ Check mode is working.
 #### Create or checkout existent branch
 
 ```yaml
-- git_config:
+- git_commit:
     repo: path/to-local/repo
     branch: feature/new-branch
 ```
