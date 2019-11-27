@@ -102,6 +102,8 @@ commit_message:
   type: str
 '''
 from ansible.module_utils.basic import AnsibleModule
+from string import Template
+import os
 
 
 class git_wrapper(object):
@@ -214,14 +216,17 @@ def main():
     add_files = params['add_files']
     commit_msg = params['commit_msg']
     dir = params['repo']
-    branch = params['branch']
+    raw_branch = params['branch']
     commit = params['commit']
     push = params['push']
 
     git = git_wrapper(module, dir)
+    temp = Template(raw_branch)
+    
     changed = False
     diff = ''
 
+    branch = temp.substitute(os.environ)
     changed = git.checkout_branch(branch)
 
     if add_files:
